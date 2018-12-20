@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+    {% load static from staticfiles %}
+    {% block linkscript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'index/index.css' %}">
+    <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'index/slide/js/slide.js'%}"></script>
+    {% endblock linkscript %}
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">xxxx</div>
+        <div class="login">xxxx</div>
+    </div>
+
+    <div class="nav">
+        <div class="clear">
+            <ul>
+                <li>
+                    <a href="">国内</a>
+                    <a href="">军事</a>
+                    <a href="">生活</a>
+                    <a href="">旅游</a>
+                    <a href="">国际</a>
+                    <a href="">科技</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="middle">
+        <div class="hotNews">
+            <h2>实时新闻</h2>
+            <dl>
+                <dt>xxxx</dt>
+                <dd>xxxx</dd>
+                <dt>yyyy</dt>
+                <dd>yyyy</dd>
+            </dl>
+        </div>
+        <div class="slidesPicture" id="container">
+            <div id="list" style="left: -960px;">
+                <img src="{% static 'pictures/three.jpg'%}" alt="1" />
+                <img src="{% static 'pictures/four.jpg'%}" alt="2" />
+                <img src="{% static 'pictures/five.jpeg'%}" alt="3" />
+                <img src="{% static 'pictures/four.jpg'%}" alt="4" />
+                <img src="{% static 'pictures/five.jpeg'%}" alt="5" />
+            </div>
+            <div id="buttons">
+                <span index="1" class="on"></span>
+                <span index="2"></span>
+                <span index="3"></span>
+                <span index="4"></span>
+                <span index="5"></span>
+            </div>
+            <a href="javascript:;" id="prev" class="arrow">&lt;</a>
+            <a href="javascript:;" id="next" class="arrow">&gt;</a>
+        </div>
+    </div>
+</body>
+
+</html>
