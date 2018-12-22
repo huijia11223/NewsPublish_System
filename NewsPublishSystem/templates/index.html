@@ -9,9 +9,9 @@
     {% load static from staticfiles %}
     {% block linkscript %}
     <link rel="stylesheet" type="text/css" href="{% static 'index/index.css' %}">
-    <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}"></script>
-    <script type="text/javascript" charset="utf-8" src="{% static 'jquery-3.3.1.min.js' %}"></script>
-    <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script>
+    <!-- <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}"></script> -->
+    <!-- <script type="text/javascript" charset="utf-8" src="{% static 'jquery-3.3.1.min.js' %}"></script> -->
+    <!-- <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script> -->
     <script type="text/javascript" charset="utf-8" src="{% static 'index/slide/js/slide.js'%}"></script>
     {% endblock linkscript %}
 </head>
@@ -19,7 +19,12 @@
 <body>
     <div class="header">
         <div class="logo">xxxx</div>
-        <div class="login">xxxx</div>
+        <div class="login">
+            <span class="registerSubmit">
+                <a href="/register/">注册</a>
+                <a href="/login/">登录</a>
+            </span>
+        </div>
     </div>
 
     <div class="nav">
@@ -32,6 +37,7 @@
                     <a href="">旅游</a>
                     <a href="">国际</a>
                     <a href="">科技</a>
+
                 </li>
             </ul>
         </div>
@@ -65,6 +71,163 @@
             <a href="javascript:;" id="next" class="arrow">&gt;</a>
         </div>
     </div>
+    <div class="continent">
+        <div class="east">
+            <div class="africa">
+                非洲新闻
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+            </div>
+            <div class="asian">
+                亚洲新闻
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+            </div>
+            <div class="europe">
+                欧洲新闻
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="" class="clear">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+            </div>
+        </div>
+        <div class="west">
+            <div class="nAmerica">
+                北美洲新闻
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+            </div>
+            <div class="sAmerica">
+                南美洲新闻
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+            </div>
+            <div class="oceania">
+                大洋洲新闻
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+            </div>
+            <div class="antractica">
+                南极洲新闻
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+                <p>
+                    <strong>
+                        xxx
+                    </strong>
+                    <a href="">jjj</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p>xxxxxx版权所有</p>
+    </div>
+
 </body>
 
 </html>

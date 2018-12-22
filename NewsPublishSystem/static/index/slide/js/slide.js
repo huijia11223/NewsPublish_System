@@ -11,12 +11,10 @@ window.onload = function () {
         var newLeft = parseInt(list.style.left) + offset;
         list.style.left = newLeft + "px";
 
-        //
-        if (newLeft > -960) {
-            list.style.left = -5000 + 'px';
-        }
-        else if (newLeft < 5000) {
+        if (newLeft < -3840) {
             list.style.left = -960 + 'px';
+        } else if (newLeft > 0) {
+            list.style.left = -3840 + 'px';
         }
     }
 
@@ -53,7 +51,7 @@ window.onload = function () {
     next.onclick = function () {
         index += 1;
         if (index > 5) {
-            index = 1
+            index = 1 
         }
         animate(-960);
         buttonsShow();

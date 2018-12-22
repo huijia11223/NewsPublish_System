@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login-page</title>
+    {% load static from staticfiles %}
+    {% block linkscript %}
+    <link rel="stylesheet" type="text/css" href="{% static 'login/login.css'%}">
+    {% endblock linkscript %}
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index/" class="logo">logo</a>
+        <span class="pageTitle">
+            <b>
+                用户登录
+            </b>
+        </span>
+        <span class="registerBar">
+            <b>没有帐号，可以先注册！
+                <a href="/register/">注册</a>
+            </b>
+            <b>
+                <a href="/index/">回到首页</a>
+            </b>
+        </span>
+    </div>
+    <div class="middle">
+        <div class="loginPage">
+            <div class="loginFrame">
+                <form action="">
+                    <span class="title">USER LOGIN</span>
+                    <em class="loginError">显示用户错误的地方</em>
+                    <span class="user">input-name</span>
+                    <span class="password">input-password</span>
+                    <div class="vefify">
+                        <div class="input_code">
+                            <label for="" class="verifyTitle">please input verify code:</label>
+                            <input type="text" class="code">
+                        </div>
+
+                        <div class="verify_picture">
+                            <canvas></canvas>
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="input_class"> 
+                        <input type="submit" value="Enter">
+                        <input type="reset" name="" id="" value="reset">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="help">
+            <a href="">广告服务</a>
+            <b>|</b>
+            <a href="">联系方式</a>
+            <b>|</b>
+            <a href="">服务条款</a>
+            <b>|</b>
+            <a href="">帮助</a>
+            <b>|</b>
+            <a href="">隐私政策</a>
+            <b>|</b>
+            <a href="">其他</a>
+        </div>
+        <div class="copyright">© xxxx版权所有</div>
+    </div>
+</body>
+
+</html>
