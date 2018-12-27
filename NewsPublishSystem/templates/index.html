@@ -13,6 +13,7 @@
     <!-- <script type="text/javascript" charset="utf-8" src="{% static 'jquery-3.3.1.min.js' %}"></script> -->
     <!-- <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script> -->
     <script type="text/javascript" charset="utf-8" src="{% static 'index/slide/js/slide.js'%}"></script>
+    <script type="text/javascript" charset="unt-8" src="{% static 'index/userOnline.js'%}"></script>
     {% endblock linkscript %}
 </head>
 
@@ -20,9 +21,15 @@
     <div class="header">
         <div class="logo">xxxx</div>
         <div class="login">
-            <span class="registerSubmit">
+            <span class="registerSubmit" id="register">
                 <a href="/register/">注册</a>
                 <a href="/login/">登录</a>
+            </span>
+        </div>
+        <div class="userOnline">
+            <span class="registerSubmit">
+                <a href="/mine/{{uid}}" id="username">{{username|default:"null"}}</a>
+                <a href="/quit/" class="quit">退出登录</a>
             </span>
         </div>
     </div>
@@ -44,7 +51,7 @@
     </div>
     <div class="middle">
         <div class="hotNews">
-            <h2>实时新闻</h2>
+            <h2>实时新闻<span>(updated 15 minutes)</span></h2>
             <dl>
                 <dt>xxxx</dt>
                 <dd>xxxx</dd>

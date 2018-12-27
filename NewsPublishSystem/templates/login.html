@@ -8,7 +8,9 @@
     <title>Login-page</title>
     {% load static from staticfiles %}
     {% block linkscript %}
-    <link rel="stylesheet" type="text/css" href="{% static 'login/login.css'%}">
+    <script type="text/javascript" charset="utf-8" src="{% static 'code/jquery-3.3.1.min.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'mui-master/dist/css/mui.min.css' %}"> -->
     {% endblock linkscript %}
 </head>
 
@@ -32,23 +34,26 @@
     <div class="middle">
         <div class="loginPage">
             <div class="loginFrame">
-                <form action="">
+                <form action="/login/" method="POST" novalidate>
                     <span class="title">USER LOGIN</span>
-                    <em class="loginError">显示用户错误的地方</em>
-                    <span class="user">input-name</span>
-                    <span class="password">input-password</span>
+                    <em class="loginError">{% if message %}<p>
+                            <font color="red">*{{message}}</font>
+                        </p>{% endif %}</em>
+                    <!-- <span class="user">input-name</span>
+                    <span class="password">input-password</span> -->
+                    {{obj.as_ul}}
                     <div class="vefify">
                         <div class="input_code">
                             <label for="" class="verifyTitle">please input verify code:</label>
                             <input type="text" class="code">
                         </div>
 
-                        <div class="verify_picture">
-                            <canvas></canvas>
-                            <img src="" alt="">
+                        <div class="verify_picture" id="verificationCode">
+                            <canvas width="100px" height="100px" id="verifyCanvas"></canvas>
+                            <img id="code_img">
                         </div>
                     </div>
-                    <div class="input_class"> 
+                    <div class="input_class">
                         <input type="submit" value="Enter">
                         <input type="reset" name="" id="" value="reset">
                     </div>
@@ -73,5 +78,6 @@
         <div class="copyright">© xxxx版权所有</div>
     </div>
 </body>
-
+<script type="text/javascript" charset="utf-8" src="{% static 'code/code.js' %}"></script>
+<!-- <script>console.log(verVal)</script> -->
 </html>

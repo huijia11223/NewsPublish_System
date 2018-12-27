@@ -12,7 +12,7 @@ window.onload = function () {
         list.style.left = newLeft + "px";
 
         if (newLeft < -3840) {
-            list.style.left = -960 + 'px';
+            list.style.left = 0 + 'px';
         } else if (newLeft > 0) {
             list.style.left = -3840 + 'px';
         }

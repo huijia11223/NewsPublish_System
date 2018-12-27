@@ -1,0 +1,21 @@
+.verificationCode{
+    width: 4rem;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+canvas{
+    width: 100%;
+    height: 100%;
+    /* color: blue; */
+}
+#code_img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+/* #verifital_input{
+    color: blueviolet;
+} */
