@@ -1,24 +1,28 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from .forms.register import RegisterForm
 from .forms.login import LoginForm
+from .forms.editUser import EditUser
+from .forms.loginPublisher import LoginPublisher
 from django.contrib.auth import logout
-from .models import User
+from .models import User, NewPublisher
 import time
 import random
+
 
 # Create your views here.
 
 
 def index(request):
-    uid=request.session.get("uid")
+    uid = request.session.get("uid")
     user = request.session.get("username")
-    return render(request, "index.html", {'username': user,'uid':uid})
+    return render(request, "index.html", {'username': user, 'uid': uid})
 
-def index2(request,uid):
-    data=User.objects.filter(uid=uid).values().first()
-    uid=data['uid']
-    username=data['username']
-    return render(request,'index.html',{'uid':uid,"username":username})
+
+def index2(request, uid):
+    data = User.objects.filter(uid=uid).values().first()
+    uid = data['uid']
+    username = data['username']
+    return render(request, 'index.html', {'uid': uid, "username": username})
 
 
 def login(request):
@@ -34,16 +38,21 @@ def login(request):
                     return render(request, 'login.html', {"obj": f, "message": message})
             except User.DoesNotExist:
                 message = "用户不存在"
+
                 return render(request, 'login.html', {'obj': f, 'message': message})
 
             request.session['username'] = user.username
             request.session['uid'] = user.uid
             uid = request.session.get('uid')
             username = request.session.get("username")
+
             return render(request, 'index.html', locals())
 
-    obj = LoginForm()
-    return render(request, "login.html", {'obj': obj})
+        obj = LoginForm(request.POST)
+        return render(request, 'login.html', {'obj': obj})
+    else:
+        obj = LoginForm()
+        return render(request, "login.html", {'obj': obj})
 
 
 def register(request):
@@ -62,13 +71,12 @@ def register(request):
         user = User.createUser(uid, name, password, phone,
                                email, country, idNumber, usertoken)
         user.save()
-        request.session['uid']=uid
+        request.session['uid'] = uid
         request.session['username'] = name
         request.session['usertoken'] = usertoken
         return redirect('/index/')
 
     obj = RegisterForm()
-    # print("1",obj)
     return render(request, 'register.html', {'obj': obj})
 
 
@@ -78,10 +86,59 @@ def quit(request):
 
 
 def mine(request, uid):
-    obj=User.objects.filter(uid=uid).values().first()
-    return render(request, 'mine.html',locals())
+    obj = User.objects.filter(uid=uid).values().first()
+    return render(request, 'mine.html', locals())
+
+# 初始化资料首页
 
 
-def updateMaterial(request,uid):
-    pass
+def initMaterial(request, uid):
+    row = User.objects.filter(uid=uid).values(
+        'uid', 'username', 'phone', 'email', 'country', 'idNumber').first()
+    udata = EditUser(initial=row)
+    return render(request, 'mine.html', {'uid': uid, 'udata': udata})
 
+
+def ModifyData(request, uid):
+    if request.method == 'POST':
+        username = request.POST.get("username")
+        phone = request.POST.get("phone")
+        email = request.POST.get("email")
+        country = request.POST.get("country")
+        User.objects.filter(uid=uid).update(
+            username=username, phone=phone, email=email, country=country)
+        return redirect('/mine/%d' % int(uid))
+
+
+def military(request):
+    return render(request, 'military.html')
+
+
+def science(request):
+    return render(request, 'science.html')
+
+
+def base(request):
+    return render(request, 'base.html')
+
+
+def newPublisherLogin(request):
+    if request.method == 'POST':
+        f = LoginPublisher(request.POST)
+        if f.is_valid():
+            username = f.cleaned_data['username']
+            passwd = f.cleaned_data['passwd']
+            try:
+                newPublisher = NewPublisher.objects.get(username=username)
+                if newPublisher.password != passwd:
+                    return HttpResponse("password error")
+            except NewPublisher.DoesNotExist:
+                return HttpResponse("account is not exist")
+            return render(request, 'NewPublisher/indexPublisher.html')
+    else:
+        newpublisher = LoginPublisher()
+        return render(request, "NewPublisher/login.html", {'obj': newpublisher})
+
+def publisherExit(request):
+    newpublisher = LoginPublisher()
+    return render(request, "NewPublisher/login.html", {'obj': newpublisher})

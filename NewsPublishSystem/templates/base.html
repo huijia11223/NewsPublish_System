@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>军事</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" href="{% static 'military/css/military.css'%}">
+    <script type="text/javascript" charset="utf-8" src="{% static 'military/js/military.js'%}"></script>
+    <script>
+        window.onload = function () {
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 1029 * imgArr.length + "px";
+
+            var navDiv = document.getElementById("navDiv");
+            var outer = document.getElementById("outer");
+
+            navDiv.style.left = (outer.offsetWidth - navDiv.offsetWidth) / 2 + "px";
+
+            var index = 0;
+            var allA = document.getElementById("navDiv").getElementsByTagName("a");
+            allA[index].style.backgroundColor = "black";
+            
+            
+            //点击按钮调转图片
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].num = i;
+                allA[i].onclick = function () {
+                    clearInterval(timer);
+                    index = this.num;
+                    setA();
+                    //移动图片
+                    move(imgList, "left", -1029 * index, 20, function () {
+                        autoChange();//自动切换方法
+                    });
+                };
+            }
+
+            autoChange();
+
+            
+
+            //创建一个方法用来设置选中的a
+            function setA() {
+                if (index >= imgArr.length - 1) {
+                    index = 0;
+                    imgList.style.left = 0;
+                }
+                for (var i = 0; i < allA.length; i++) {
+                    allA[i].style.backgroundColor = "";
+                }
+                // console.log(allA[index])
+                allA[index].style.backgroundColor = "black";
+            };
+
+            var timer;
+
+            function autoChange() {
+                timer = setInterval(function () {
+                    index++;
+                    index %= imgArr.length;
+
+                    move(imgList, "left", -1029 * index, 20, function () {
+                        setA();
+                    });
+                }, 2000)
+            }
+        };
+
+    
+    </script>
+</head>
+
+<body>
+    <div class="header">
+        <a href="/index/" class="logo">
+            <img src="{% static 'military/priture/logo.jpeg'%}" alt="no priture" width="100px" height="50px">
+        </a>
+        <div class="category">
+            <ul class="mainlist">
+                <li><a href="/military/">Military</a></li>
+                <li><a href="/science/">Science</a></li>
+                <li><a href="">Art</a></li>
+                <li><a href="">HotNew</a></li>
+                <li><a href="">Physical</a></li>
+                <li><a href="">Cultural</a></li>
+                <li><a href="">Demostic</a></li>
+                <li><a href="">Entertainment</a></li>
+            </ul>
+        </div>
+        
+        <div class="LogReg">
+            <div class="navlogin">
+                <a href="/login/">LOGIN</a>
+                <a href="/register/">REGISTER</a>
+            </div>
+        </div>
+    </div>
+    {% block base %}
+    {% endblock base %}
+    
+</body>
+
+</html>

@@ -7,14 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>首页</title>
     {% load static from staticfiles %}
-    {% block linkscript %}
     <link rel="stylesheet" type="text/css" href="{% static 'index/index.css' %}">
-    <!-- <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/css/bootstrap.min.css' %}"></script> -->
-    <!-- <script type="text/javascript" charset="utf-8" src="{% static 'jquery-3.3.1.min.js' %}"></script> -->
-    <!-- <script type="text/javascript" charset="utf-8" src="{% static 'bootstrap-3.3.7-dist/js/bootstrap.min.js' %}"></script> -->
     <script type="text/javascript" charset="utf-8" src="{% static 'index/slide/js/slide.js'%}"></script>
-    <script type="text/javascript" charset="unt-8" src="{% static 'index/userOnline.js'%}"></script>
-    {% endblock linkscript %}
+    <!-- <script type="text/javascript" charset="utf-8" src="{% static 'index/userOnline.js'%}"></script> -->
 </head>
 
 <body>
@@ -29,7 +24,7 @@
         <div class="userOnline">
             <span class="registerSubmit">
                 <a href="/mine/{{uid}}" id="username">{{username|default:"null"}}</a>
-                <a href="/quit/" class="quit">退出登录</a>
+                <a href="/quit/" class="quit">退出</a>
             </span>
         </div>
     </div>
@@ -39,11 +34,11 @@
             <ul>
                 <li>
                     <a href="">国内</a>
-                    <a href="">军事</a>
+                    <a href="/military/">军事</a>
                     <a href="">生活</a>
                     <a href="">旅游</a>
                     <a href="">国际</a>
-                    <a href="">科技</a>
+                    <a href="/science/">科技</a>
 
                 </li>
             </ul>
@@ -236,5 +231,6 @@
     </div>
 
 </body>
+<script type="text/javascript" charset="utf-8" src="{% static 'index/userOnline.js' %}"></script>
 
 </html>

@@ -22,16 +22,15 @@ class User(models.Model):
 
 class New(models.Model):
     nid=models.IntegerField(primary_key=True)
-    # headLine=models.CharField(max_length=20)
     title=models.CharField(max_length=20)
     content=models.CharField(max_length=500)
     commentNumber=models.IntegerField()
     publishTime=models.DateField()
-    # author=models.DateField(max_length=20) #文章发布时间
     articleAuthor=models.CharField(max_length=20)#文章作者
     readerNumber=models.IntegerField()
     country=models.CharField(max_length=20)
     continent=models.CharField(max_length=10)
+    newtype=models.CharField(max_length=20)
 
     class Meta:
         db_table='new'
@@ -44,6 +43,14 @@ class Admin(models.Model):
     class Meta:
         db_table='admin'
 
+class NewPublisher(models.Model):
+    id=models.IntegerField(primary_key=True,null=False)
+    username=models.CharField(max_length=20,null=False)
+    password=models.CharField(max_length=20,null=False)
+
+    class Meta:
+        db_table="newPublisher"
+
 
 class Comment(models.Model):
     content=models.CharField(max_length=50)
@@ -52,3 +59,110 @@ class Comment(models.Model):
 
     class Meta:
         db_table='comment'
+
+#非洲
+class AfricaNew(models.Model):
+    nid=models.IntegerField(primary_key=True)
+    title=models.CharField(max_length=20)
+    content=models.CharField(max_length=500)
+    commentNumber=models.IntegerField()
+    publishTime=models.DateField()
+    articleAuthor=models.CharField(max_length=20)#文章作者
+    readerNumber=models.IntegerField()
+    country=models.CharField(max_length=20)
+    continent=models.CharField(max_length=10)
+    newtype=models.CharField(max_length=20)
+    class Meta:
+        db_table='AfricaNew'
+
+class AsiaNew(models.Model):
+    nid=models.IntegerField(primary_key=True)
+    title=models.CharField(max_length=20)
+    content=models.CharField(max_length=500)
+    commentNumber=models.IntegerField()
+    publishTime=models.DateField()
+    articleAuthor=models.CharField(max_length=20)#文章作者
+    readerNumber=models.IntegerField()
+    country=models.CharField(max_length=20)
+    continent=models.CharField(max_length=10)
+    newtype=models.CharField(max_length=20)
+    class Meta:
+        db_table='AsiaNew'
+
+class EuropeNew(models.Model):
+    nid=models.IntegerField(primary_key=True)
+    title=models.CharField(max_length=20)
+    content=models.CharField(max_length=500)
+    commentNumber=models.IntegerField()
+    publishTime=models.DateField()
+    articleAuthor=models.CharField(max_length=20)#文章作者
+    readerNumber=models.IntegerField()
+    country=models.CharField(max_length=20)
+    continent=models.CharField(max_length=10)
+    newtype=models.CharField(max_length=20)
+    class Meta:
+        db_table='EuropeNew'
+
+
+class NorthAmericaNew(models.Model):
+    nid=models.IntegerField(primary_key=True)
+    title=models.CharField(max_length=20)
+    content=models.CharField(max_length=500)
+    commentNumber=models.IntegerField()
+    publishTime=models.DateField()
+    articleAuthor=models.CharField(max_length=20)#文章作者
+    readerNumber=models.IntegerField()
+    country=models.CharField(max_length=20)
+    continent=models.CharField(max_length=10)
+    newtype=models.CharField(max_length=20)
+    class Meta:
+        db_table='NorthAmericaNew'
+
+
+
+
+
+class SouthAmericaNew(models.Model):
+    nid=models.IntegerField(primary_key=True)
+    title=models.CharField(max_length=20)
+    content=models.CharField(max_length=500)
+    commentNumber=models.IntegerField()
+    publishTime=models.DateField()
+    articleAuthor=models.CharField(max_length=20)#文章作者
+    readerNumber=models.IntegerField()
+    country=models.CharField(max_length=20)
+    continent=models.CharField(max_length=10)
+    newtype=models.CharField(max_length=20)
+    class Meta:
+        db_table='SouthAmericaNew'
+
+
+class OceaniaNew(models.Model):
+    nid=models.IntegerField(primary_key=True)
+    title=models.CharField(max_length=20)
+    content=models.CharField(max_length=500)
+    commentNumber=models.IntegerField()
+    publishTime=models.DateField()
+    articleAuthor=models.CharField(max_length=20)#文章作者
+    readerNumber=models.IntegerField()
+    country=models.CharField(max_length=20)
+    continent=models.CharField(max_length=10)
+    newtype=models.CharField(max_length=20)
+    class Meta:
+        db_table='OceaniaNew'
+
+#南极洲
+class AntarcticaNew(models.Model):
+    nid=models.IntegerField(primary_key=True)
+    title=models.CharField(max_length=20)
+    content=models.CharField(max_length=500)
+    commentNumber=models.IntegerField()
+    publishTime=models.DateField()
+    articleAuthor=models.CharField(max_length=20)#文章作者
+    readerNumber=models.IntegerField()
+    country=models.CharField(max_length=20)
+    continent=models.CharField(max_length=10)
+    newtype=models.CharField(max_length=20)
+    class Meta:
+        db_table='AntarcticaNew'
+

@@ -40,7 +40,7 @@ body {
     height: 1000px;
     width: 970px;
     margin: 0 auto;
-    border: 1px solid rgb(37, 3, 3)
+    border: 1px solid rgb(37, 3, 3);
 }
 
 div.information {
@@ -117,8 +117,10 @@ li.baseLI{
 
 }
 .box_itemCon{
-    font-size: 25px;
-    float: left;
+    font-size: 20px;
+    /* float: left; */
+    display: none;
+    overflow: hidden;
 }
 
 .footer{
@@ -142,4 +144,10 @@ a{
 }
 h3{
     font-size: 30px;
+}
+.edit{
+    font-size: 20px;
+    /* float: left; */
+    display: none;
+    overflow: hidden;
 }

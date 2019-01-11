@@ -1,0 +1,85 @@
+body {
+    width: 100%;
+    height: 1000px;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+* {
+    box-sizing: border-box
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: red;
+}
+
+.headerTitle {
+    width: 50%;
+    height: 100px;
+    background-color: white;
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+.mainFrame {
+    height: 1000px;
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid rgb(37, 3, 3);
+}
+
+div.leftSider {
+    float: left;
+    border: 1px solid #ccc;
+    border-left-color: #f1f1f1;
+    width: 30%;
+    height: 300px;
+
+}
+
+div.leftSider button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transform: 0.3s;
+    font-size: 17px;
+}
+
+div.leftSider button:hover {
+    background-color: #ddd;
+}
+
+div.leftSider button:active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    width: 70%;
+    height: 100%;
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid black;
+    border-left: none;
+    line-height: 30px;
+    /* display: none; */
+}
+.nab{
+    color: rebeccapurple;
+    font-size: 25px;
+}
+.test{
+    width: 100px;
+    height: 100px;
+    background-color: green;
+}

@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login-page</title>
     {% load static from staticfiles %}
-    {% block linkscript %}
+    
     <script type="text/javascript" charset="utf-8" src="{% static 'code/jquery-3.3.1.min.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'login/login.css' %}">
     <!-- <link rel="stylesheet" href="{% static 'mui-master/dist/css/mui.min.css' %}"> -->
-    {% endblock linkscript %}
+    
 </head>
 
 <body>
@@ -34,9 +34,10 @@
     <div class="middle">
         <div class="loginPage">
             <div class="loginFrame">
-                <form action="/login/" method="POST" novalidate>
+                <form action="/login/" method="POST" onsubmit="return submitTest()" novalidate>
                     <span class="title">USER LOGIN</span>
-                    <em class="loginError">{% if message %}<p>
+                    <em class="loginError">
+                        {% if message %}<p>
                             <font color="red">*{{message}}</font>
                         </p>{% endif %}</em>
                     <!-- <span class="user">input-name</span>
@@ -45,7 +46,7 @@
                     <div class="vefify">
                         <div class="input_code">
                             <label for="" class="verifyTitle">please input verify code:</label>
-                            <input type="text" class="code">
+                            <input type="text" class="code" id="code" onblur="verifyCode()">
                         </div>
 
                         <div class="verify_picture" id="verificationCode">
@@ -80,4 +81,5 @@
 </body>
 <script type="text/javascript" charset="utf-8" src="{% static 'code/code.js' %}"></script>
 <!-- <script>console.log(verVal)</script> -->
+
 </html>

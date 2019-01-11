@@ -5,9 +5,9 @@ var nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
 
 var str="";
 var verVal=drawCode(); //
+
 function drawCode(str){
     var canvas=document.getElementById("verifyCanvas");
-    
     var context=canvas.getContext("2d"); //获取画布上下文2d
     context.fillStyle="cornflowerblue"; //填充颜色
     context.fillRect(0,0,canvas.clientWidth,canvas.height);//清空画布
@@ -28,7 +28,7 @@ function drawCode(str){
     //3条随机线
     for (var i=0;i<3;i++){
         drawline(canvas,context);
-    }
+    }   
 
     //画30个随机点
     for (var i=0;i<30;i++){
@@ -37,6 +37,7 @@ function drawCode(str){
     }
     convertCanvasToImage(canvas);
     return str;
+    
 }
 
 function drawline(canvas,context){
@@ -70,3 +71,8 @@ function resetCode(){
     verVal=drawCode();
 }
 
+function verifyCode(){
+    var val1=document.getElementById("code");
+    var val2=str;
+    console.log(val1,val2);
+}

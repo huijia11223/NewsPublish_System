@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>发布者新闻主页</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'newPublisher/index/css/index.css' %}">
+</head>
+
+<body>
+    <div class="header">
+        <div class="headerTitle">
+            Welcome! <span>user</span>
+            <a href="/publisherExit/">exit</a>
+        </div>
+    </div>
+    <div class="mainFrame">
+        <div class="leftSider">
+            <button class="tablinks" id="defaultOpen" onclick="openList(event,'News')">News</button>
+            <button class="tablinks" onclick="openList(event,'addNews')">Add News</button>
+            <button class="tablinks" onclick="openList(event,'attendtionItem')">attendtion item</button>
+        </div>
+        <div id="News" class="tabcontent">
+            aaa
+            <div class="test">
+                ...
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
+        <div id="addNews" class="tabcontent">
+            bbb
+            {% block addNews %}
+            {% endblock %}
+        </div>
+        <div id="attendtionItem" class="tabcontent">
+            ccc
+            {% block aItem %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+<script type="text/javascript" charset="utf-8" src="{% static 'newPublisher/index/js/index.js'%}"></script>
+
+</html>

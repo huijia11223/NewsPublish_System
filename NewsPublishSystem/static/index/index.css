@@ -28,7 +28,7 @@ body {
     height: 70px;
     float: right;
     background-color: blueviolet;
-    /* display: block; */
+    display: none;
     position: relative;
 }
 
@@ -37,7 +37,7 @@ body {
     height:70px;
     background-color: rgb(50, 28, 160);
     float: right;
-    /* display: none; */
+    display: none;
     position: relative;
 }
 
@@ -57,7 +57,6 @@ body {
 .quit{
     font-size: 14px;
 }
-
 
 a:visited{
     color:white;
@@ -139,7 +138,7 @@ a:active{
 
 #buttons {
     position: absolute;
-    left: 250px;
+    left: 450px;
     bottom: 20px;
     z-index: 2;
     height: 10px;
@@ -187,10 +186,12 @@ a:active{
 
 #prev {
     left: 20px;
+    /* transition: 3s; */
 }
 
 #next {
     right: 20px;
+    /* transition: 3s; */
 }
 
 .continent {

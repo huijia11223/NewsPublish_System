@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static from staticfiles %}
+
+{% block base %}
+<div class="navNewsCon">
+</div>
+<div class="wrap">
+    <div class="wrapCon bgWhite">
+        <div class="focusNew">
+            <div class="leftsider">
+                <div class="scrollPhoto" id="outer">
+                    <ul id="imgList">
+                        <li><img width="1029px" height="460px" src="{% static 'military/priture/1.jpg'%}" alt=""></li>
+                        <li><img width="1029px" height="460px" src="{% static 'military/priture/2.jpg'%}" alt=""></li>
+                        <li><img width="1029px" height="460px" src="{% static 'military/priture/3.jpg'%}" alt=""></li>
+                        <li><img width="1029px" height="460px" src="{% static 'military/priture/4.jpg'%}" alt=""></li>
+                        <li><img width="1029px" height="460px" src="{% static 'military/priture/5.jpg'%}" alt=""></li>
+                        <li><img width="1029px" height="460px" src="{% static 'military/priture/1.jpg'%}" alt=""></li>
+                    </ul>
+                    <div id="navDiv">
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                        <a href="javascript:;"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="rightsider">
+
+            </div>
+        </div>
+        <div class="conNew">
+            <div></div>
+        </div>
+        <div class="videoNew"></div>
+    </div>
+</div>
+<div class="footer">
+    <div class="help">
+        <a href="">广告服务</a>
+        <b>|</b>
+        <a href="">联系方式</a>
+        <b>|</b>
+        <a href="">服务条款</a>
+        <b>|</b>
+        <a href="">帮助</a>
+        <b>|</b>
+        <a href="">隐私政策</a>
+        <b>|</b>
+        <a href="">其他</a>
+    </div>
+    <div class="copyright">© xxxx版权所有</div>
+</div>
+{% endblock base%}

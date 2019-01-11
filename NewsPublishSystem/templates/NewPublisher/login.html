@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    {% load static from staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'newPublisher/login/css/login.css'%}">
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            News Publisher login
+        </div>
+    </div>
+    <div class="middle">
+    <div class="loginPage">
+        <div class="l">
+            <form action="/newPublisherLogin/" method="POST">
+                {% csrf_token %}
+                {{obj.as_p}}
+                <input type="submit" value="submit">
+                <input type="reset" value="reset">
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

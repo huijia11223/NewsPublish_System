@@ -1,4 +1,4 @@
-body {
+    body {
     margin: 0;
     padding: 0;
     font-size: 14px;
@@ -148,4 +148,10 @@ a {
 
 li {
     list-style-type: none;
+}
+.errorlist{
+    font-size: 10px;
+    color: red;
+    float: right;
+
 }

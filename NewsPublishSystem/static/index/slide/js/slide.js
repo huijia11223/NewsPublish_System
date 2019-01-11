@@ -7,6 +7,21 @@ window.onload = function () {
     var index = 1;
     var timer;
 
+    function changeDiv() {
+        var username = document.getElementById("username");
+        var login = document.getElementsByClassName("login");
+        var userOnline = document.getElementsByClassName("userOnline");
+        if (username.innerText == "null") {
+            for (var i = 0; i < login.length; i++) {
+                login[i].style.display = "block"
+            }
+        } else {
+            for (var j = 0; j < userOnline.length; j++) {
+                userOnline[j].style.display = "block"
+            }
+        }
+    }
+
     function animate(offset) {
         var newLeft = parseInt(list.style.left) + offset;
         list.style.left = newLeft + "px";
@@ -70,5 +85,6 @@ window.onload = function () {
     }
     container.onmouseover = stop;
     container.onmouseout = play;
+    changeDiv();    
     play();
 }

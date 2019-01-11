@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>我的资料</title>
     {% load static from staticfiles %}
-    {% block linkscript %}
+   
     <link rel="stylesheet" href="{% static 'mine/mine.css'%}">
-    {% endblock linkscript %}
+
+    
 </head>
 
-<body>
+<body onload="divmodify()">
     <div class="header">
         <a href="/index2/{{obj.uid}}" class="logo">logo</a>
         <span class="pageTitle">
@@ -37,38 +37,49 @@
         </div>
         <div id="London" class="tabcontent">
             <div class="material">
-                <h3>我的资料</h3>
-                <a href="/updateMaterial/{{obj.uid}}">修改资料</a>
+                <h3>我的资料
+                    <a href="/initMaterial/{{obj.uid}}" class="box_itemCon">修改资料</a>
+                    <!-- <a href="/ModifyData/{{uid}}" class="edit">确定</a> -->
+                </h3>
             </div>
             <div class="data">
+                <form action="/ModifyData/{{uid}}/" method="POST">
                 <ul>
                     <li class="baseLI">
                         <span class="listTitle">User Id:</span>
                         <div class="box_itemCon">{{obj.uid}}</div>
+                        <div class="edit" id="uidedit">{{udata.uid|default:"null"}}</div>
                     </li>
                     <li class="baseLI">
                         <span class="listTitle">UserName:</span>
                         <div class="box_itemCon">{{obj.username}}</div>
+                        <div class="edit">{{udata.username}}</div>
                     </li>
                     <li class="baseLI">
                         <span class="listTitle">Phone:</span>
                         <div class="box_itemCon">{{obj.phone}}</div>
+                        <div class="edit">{{udata.phone}}</div>
                     </li>
                     <li class="baseLI">
                         <span class="listTitle">E-maiil:</span>
                         <div class="box_itemCon">{{obj.email}}</div>
+                        <div class="edit">{{udata.email}}</div>
                     </li>
                     <li class="baseLI">
                         <span class="listTitle">Country:</span>
                         <div class="box_itemCon">{{obj.country}}</div>
+                        <div class="edit">{{udata.country}}</div>
                     </li>
                     <li class="baseLI">
                         <span class="listTitle">Id-Number</span>
                         <div class="box_itemCon">{{obj.idNumber}}</div>
+                        <div class="edit">{{udata.idNumber}}</div>
                     </li>
+                    <input type="submit" value="confirm" class="edit">
                 </ul>
+                </form>
             </div>
-           
+
         </div>
         <div id="Paris" class="tabcontent">
             <h3>官网简介</h3>
@@ -100,7 +111,7 @@
             <p>Tokyo is the capital of Japan</p>
         </div>
     </div>
-   
+
     <div class="footer">
         <div class="help">
             <a href="">广告服务</a>
@@ -119,5 +130,6 @@
     </div>
 </body>
 <script type="text/javascript" charset="utf-8" src="{% static 'mine/mine.js'%}"></script>
+<script type="text/javascript" charset="utf-8" src="{% static 'mine/changediv.js'%}"></script>
 
 </html>
